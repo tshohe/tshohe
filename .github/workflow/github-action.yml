@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: test command
+      run: echo ${TEST_SECRET}
