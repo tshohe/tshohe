@@ -12,20 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: test command
       env:
         TEST_SECRET: ${{ secrets.TEST_SECRET }}
       run: echo $TEST_SECRET
-    - name: set COMMIT_MESSAGE
-      run: echo "commit_message=$(echo \"${{ github.event.head_commit.message }}\" | tr '\n' ' ')" >> $GITHUB_ENV
-    - name: Slack Notification
+    - name: Set COMMIT_MESSAGE
+        run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" | tr '\n' ' ' >> $GITHUB_ENV
+    - name: Slack Notification on SUCCESS
       if: success()
-      uses: tokorom/action-slack-incoming-webhook@master
+      uses: tokorom/action-slack-incoming-webhook@main
       env:
         INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       with:
-        text: "Github action successfully executed"
+        text: Successfully automated deployment.
         attachments: |
           [
             {
@@ -35,7 +35,7 @@ jobs:
               "fields": [
                 {
                   "title": "Commit Message",
-                  "value": "${{ env.commit_message }}"
+                  "value": "${{ github.event.head_commit.message }}"
                 },
                 {
                   "title": "GitHub Actions URL",
