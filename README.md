@@ -1,9 +1,9 @@
 ### Hi there 👋
 
-## About Me
+## About me
 I am something like a software engineer.
 
-### My Skills
+### My skills
 <img alt="my skills" src="https://skillicons.dev/icons?theme=dark&perline=8&i=linux,py,django,flask,go,java,ruby,rails,mysql,postgresql,nginx,redis,ansible,aws,dynamodb,gcp,ts,nodejs,react,vue,bootstrap,electron,grafana,prometheus,selenium,sentry,raspberrypi,heroku" />
 
 <!--
