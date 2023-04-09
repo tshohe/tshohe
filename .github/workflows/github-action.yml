@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: test command
       env:
         TEST_SECRET: ${{ secrets.TEST_SECRET }}
@@ -35,7 +35,7 @@ jobs:
               "fields": [
                 {
                   "title": "Commit Message",
-                  "value": "$commit_message"
+                  "value": "${{ env.commit_message }}"
                 },
                 {
                   "title": "GitHub Actions URL",
