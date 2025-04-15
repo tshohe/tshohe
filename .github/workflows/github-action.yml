@@ -13,9 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set COMMIT_MESSAGE
-        run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" | tr '\n' ' ' >> $GITHUB_ENV
-
       - name: Slack Notification on SUCCESS
         if: success()
         uses: slackapi/slack-github-action@v2.0.0
@@ -23,4 +20,15 @@ jobs:
           webhook-type: webhook-trigger
           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
           payload: |
-            status: "${{ job.status }}"
+            {
+              "text": "Test Notfication",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ github.event.head_commit.message }}"
+                  }
+                }
+              ]
+            }
