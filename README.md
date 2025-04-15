@@ -4,7 +4,7 @@
 I am something like a software engineer.
 
 ### My skills
-<img alt="my skills" src="https://skillicons.dev/icons?theme=dark&perline=8&i=linux,py,django,flask,go,java,ruby,rails,mysql,postgresql,nginx,redis,ansible,aws,dynamodb,gcp,ts,nodejs,react,vue,bootstrap,electron,grafana,prometheus,selenium,sentry,raspberrypi,heroku" />
+<img alt="my skills" src="https://skillicons.dev/icons?theme=dark&perline=8&i=go,rust,java,kotlin,spring,py,django,flask,fastapi,ruby,rails,ts,nodejs,react,vue,electron,grafana,prometheus,selenium,sentry,mysql,postgresql,nginx,redis,elasticsearch,aws,dynamodb,gcp,linux,raspberrypi,terraform,ansible,heroku,blender,obsidian" />
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tshohe&layout=compact&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
 
