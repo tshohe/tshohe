@@ -8,21 +8,19 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set COMMIT_MESSAGE
-      run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" | tr '\n' ' ' >> $GITHUB_ENV
+        run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" | tr '\n' ' ' >> $GITHUB_ENV
 
       - name: Slack Notification on SUCCESS
-      if: success()
-      uses: slackapi/slack-github-action@v2.0.0
-      with:
-        webhook-type: webhook-trigger
-        webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-        payload: |
-          status: "${{ job.status }}"
+        if: success()
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook-type: webhook-trigger
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          payload: |
+            status: "${{ job.status }}"
