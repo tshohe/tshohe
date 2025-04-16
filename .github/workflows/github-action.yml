@@ -17,11 +17,12 @@ jobs:
         if: success()
         uses: slackapi/slack-github-action@v2.0.0
         with:
-          webhook-type: webhook-trigger
-          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
             {
               "text": "Test Notfication",
+              "channel": "CBYR49SFP",
               "blocks": [
                 {
                   "type": "section",
